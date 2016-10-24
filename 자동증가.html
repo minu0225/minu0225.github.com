@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자증가 게임</title>
+    <link rel="stylesheet" href="numup.css">
+</head>
+<body>
+   <div id="result">
+       
+   </div>
+   <div id="button_wrap">
+       <input type="button" class="b" onclick="p()" value="+">
+       <input type="button" class="b" onclick="m()" value="-">
+   </div>
+    <script type="text/javascript">
+        var a = 0;
+        document.getElementById("result").innerHTML = a;
+         setInterval(function() {
+             if(a <= 400){
+                 document.getElementById("result").innerHTML = a;
+                 a = a + 100;
+                 
+             }
+             else if(a > 400){
+                 a = 0;
+             }
+         }, 3000);
+        
+        function p(){
+            if(a <= 300){
+            document.getElementById("result").innerHTML = a;
+                a += 100;
+            }
+            else if(a == 400){
+                    document.getElementById("result").innerHTML = a;
+                    a = 0;
+                }
+            else if(a > 400){
+                document.getElementById("result").innerHTML = a;
+                a = 0;
+            }
+            }
+        function m(){
+            if(a > 0){
+            document.getElementById("result").innerHTML = a;
+                a -= 100;
+            }
+            else if(a <= 0){
+                document.getElementById("result").innerHTML = a;
+                a = 0;
+            }
+        }
+    </script>
+</body>
+</html>
