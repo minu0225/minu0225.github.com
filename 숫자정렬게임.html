@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>숫자정렬 게임</title>
+</head>
+<style>
+    #a{
+    background-color: aquamarine;
+    width: 500px;
+    }
+    #b{
+    background-color: aquamarine;
+        width: 500px;
+    }
+    #wjd1{
+    background-color: aquamarine;
+        width: 500px;
+    }
+    #wjd2{
+    background-color: aquamarine;
+        width: 500px;
+    }
+
+    </style>
+<body>
+   <form name="form">
+    <input type="text" placeholder="숫자를 입력" maxlength="1" id="text">
+    <input type="submit" value="제출" OnClick="return up()" id="button">
+    <input type="button" value="정렬" onclick="wjd()">
+    <input type="button" value="재시작" onclick="re()">
+    <div id="a">
+        
+    </div>
+    <div id="b">
+        
+    </div>
+    <div id="wjd1">
+        
+    </div>
+    <div id="wjd2">
+        
+    </div>
+    </form>
+    <script type="text/javascript">
+        var num = -1;
+        var arr = new Array();
+        function up(){
+            num++;
+            document.getElementById("a").innerHTML = "현재배열값:"+"["+num+"]";
+            var a = document.getElementById("text");
+            if(a.value != ""){
+            var msg = a.value;
+                arr[num] = msg;
+            var arr2 = arr.join();
+             document.getElementById("b").innerHTML = "입력한숫자:"+arr2;
+            }
+            else{
+               num = num - 1;
+               document.getElementById("a").innerHTML = "현재배열값:"+"["+num+"]";
+               alert("빈값을 입력하셧습니다");
+            }
+            text.value = "";
+            return false;
+        }
+        var temp = 0;
+        function wjd(){
+            for(var i=0;i<=num;i++){
+                for(var j=0;j<num;j++){
+                    if(arr[j] > arr[j+1]){
+                        temp = arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+            arr2 = arr.join();
+            document.getElementById("wjd1").innerHTML = "오름차순:"+arr2;
+            for(var i=0;i<=num;i++){
+                for(var j=0;j<num;j++){
+                    if(arr[j] < arr[j+1]){
+                        temp = arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+            arr2 = arr.join();
+            document.getElementById("wjd2").innerHTML = "내림차순:"+arr2;
+        }
+        function re(){
+            location.href="숫자정렬게임.html";
+        }
+    </script>
+</body>
+</html>
