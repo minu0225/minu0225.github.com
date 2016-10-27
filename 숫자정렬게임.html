@@ -25,7 +25,7 @@
     </style>
 <body>
    <form name="form">
-    <input type="text" placeholder="숫자를 입력" maxlength="1" id="text" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">
+    <input type="text" placeholder="숫자를 입력" maxlength="1" id="text">
     <input type="submit" value="제출" OnClick="return up()" id="button">
     <input type="button" value="정렬" onclick="wjd()">
     <input type="button" value="재시작" onclick="re()">
@@ -49,16 +49,21 @@
             num++;
             document.getElementById("a").innerHTML = "현재배열값:"+"["+num+"]";
             var a = document.getElementById("text");
-            if(a.value != ""){
+            if(a.value>-1 && a.value<10 && a.value != ""){
             var msg = a.value;
                 arr[num] = msg;
             var arr2 = arr.join();
              document.getElementById("b").innerHTML = "입력한숫자:"+arr2;
             }
-            else if(a.value == ""){
+            else if (a.value == ""){
                num = num - 1;
                document.getElementById("a").innerHTML = "현재배열값:"+"["+num+"]";
-               alert("빈값을 입력하셧습니다");
+               alert("빈값또는 문자를 입력하셧습니다");
+            }
+            else{
+               num = num - 1;
+               document.getElementById("a").innerHTML = "현재배열값:"+"["+num+"]";
+               alert("빈값또는 문자를 입력하셧습니다");
             }
             text.value = "";
             return false;
