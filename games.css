@@ -16,6 +16,8 @@
 }
 #button{
     width: 250px;
+    border-radius: 30px;
+    margin-bottom: 20px;
     margin: 0 auto;
 }
 .games{
